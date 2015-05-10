@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong> 
+  <%= @image.name %>
+</p>
+
+<p>
+  <strong>Sport:</strong> 
+  <%= @image.sport %>
+</p>
+
+<p>
+  <strong>Street number:</strong>
+  <%= @image.street_number %>
+</p>
+<p>
+  <strong>Route:</strong>
+  <%= @image.route %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @image.city %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @image.country %>
+</p>
+<p>
+  <strong>Postal code:</strong>
+  <%= @image.postal_code %>
+</p>
+
+<% if @image.picture %>
+<img src="<%=@image.picture.url(:thumb) %>">
+<% end %>
+<%= link_to 'Edit', edit_image_path(@image), class: "btn btn-lg btn-primary", :remote =>true  %>
+<%= link_to raw('Destroy <i class="icon-trash"></i>'), @image, class: "btn btn-lg", method: "delete", data: { confirm: 'Are you sure?' }, :remote =>true %>

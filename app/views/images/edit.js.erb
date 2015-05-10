@@ -1,0 +1,5 @@
+// Open the edit form
+openInfowindow(
+    "<%= j(render :template => 'images/edit.html.erb', :locals  => {:image => @image}) %>", 
+    findById(<%=@image.id%>)
+);           

@@ -1,0 +1,30 @@
+ 
+
+<div id="alert_placeholder"></div>    
+
+ 
+<p>Please allow the browser to send your location</p>     
+
+<p><strong>Double click</strong> over the map and a form will popup to create a new place.</p>
+ <%= form_tag "/images/search" do |f| %>
+  <%= text_field_tag "lat" %>Lat
+ <%= text_field_tag "lan" %>Lan
+ <%= text_field_tag "name" %>Name
+ <%= submit_tag "Search" %>
+<% end %>
+ <table>
+ <tr>
+ <th>imageURL</th>
+ <th>Event name</th>
+ <th> Lat, lan </th>
+ <th>created_at</th>
+ </tr>
+ <% @images.each do| image| %>
+ <tr>
+ <td><!-- <img src="<%#=image.picture.url(:thumb) if image.picture %>"> --><%=image.picture.url(:thumb) if image.picture %> </td>
+ <td><%= image.name%> </td>
+ <td><%= image.latitude %> <%= image.longitude%>
+ <td><%= image.created_at.to_date%> </td>
+
+
+ <% end %>
