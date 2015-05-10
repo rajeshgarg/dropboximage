@@ -83,7 +83,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     respond_to do |format|
       if @image.update(image_params)
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.html { redirect_to images_url, notice: 'Image was successfully updated.' }
         format.js {}  
       else
         format.html { render action: 'edit' }
@@ -95,6 +95,8 @@ class ImagesController < ApplicationController
   # DELETE /Images/1
   # DELETE /Images/1.json
   def destroy
+    @image = Image.find(params[:id])
+
     @image.destroy
     respond_to do |format|
       format.html { redirect_to images_url }
@@ -106,7 +108,7 @@ class ImagesController < ApplicationController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_Image
-    @Image = Image.find(params[:id])
+    @image = Image.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
