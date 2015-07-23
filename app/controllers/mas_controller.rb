@@ -1,0 +1,2 @@
+class MasController < ApplicationController
+end
