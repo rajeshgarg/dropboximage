@@ -1,0 +1,4 @@
+class HhController < ApplicationController
+  
+
+end
